@@ -1,0 +1,2123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>pipboy</class>
+ <widget class="QWidget" name="pipboy">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>720</width>
+    <height>478</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Monofonto</family>
+    <pointsize>19</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>pipboy</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	color: #77fb51;
+	background: black;
+}
+
+QTextBrowser{
+	border: none;
+}
+
+/* общий стиль, локально переопределяется для других tab-bar*/
+QTabBar::tab {
+    
+	border-bottom: 1px solid  #77fb51;
+	background: black;
+
+  	min-width: 8ex;
+    margin-right: -1px;
+    padding: 16px 10px 2px 10px;
+}
+
+QTabBar::tab:selected {
+	border-image: url(:/tab_border/image/tab_border.png);
+}
+
+QTabBar::tab:top:last, QTabBar::tab:bottom:last,
+QTabBar::tab:top:only-one, QTabBar::tab:bottom:only-one {
+    margin-right: 0;
+}
+
+/* main_ tab */
+QTabWidget#main_tab{
+
+}
+QTabWidget::pane#main_tab {
+    border-top: 1px solid #77fb51;
+    background: black;
+	top: -1px;
+}
+
+QTabWidget::tab-bar#main_tab {
+    alignment: center;
+}
+
+/*-----------------------------------------------------*/
+
+/* stat_tab, inv_tab */
+QTabWidget::pane#stat_tab, QTabWidget::pane#inv_tab {
+   
+    background: black;
+	top: -1px;
+}
+
+QTabWidget::tab-bar#stat_tab, QTabWidget::tab-bar#inv_tab {
+   left: 63px;
+}
+/*-----------------------------------------------------*/
+
+/* footer */
+
+QProgressBar {
+    border: 1px solid #77fb51;
+	background: #15350d;
+}
+
+QProgressBar::chunk {
+    background-color: #77fb51;
+    width: 20px;
+}
+
+QLabel#hp, QLabel#level, QLabel#ap, QLabel#weight, QLabel#cup, QLabel#inv_space, QLabel#weight_img, QLabel#cup_img, QLabel#data_footer, QLabel#map_footer{
+
+	background: #15350d;
+	margin: 1px 0px 0px 0px;
+}
+
+
+/*-----------------------------------------------------*/
+/* stimpak and radaway label */
+
+QLabel#stimpak, QLabel#radaway{
+	color: 2e5017;
+	background: #437520;
+	padding: 0px 1px 1px 0px;
+
+}
+
+/* QListWidget */
+QListView:focus {
+   border: none;
+   outline: none;
+}
+/*-----------------------------------------------------*/
+
+/* list */
+QListWidget{
+	border: none;
+}
+
+QListWidget::item{
+	border: 0px;
+    padding: 7px 0px 6px 20px;
+	
+}
+
+QListView::item:selected {
+	color:  #183a0f;
+	background: #77fb51;
+}
+
+/*-----------------------------------------------------*/
+
+/* special_description */
+
+QLabel#special_description{
+	 padding: 0px 0px 12px 0px;
+
+}
+/*-----------------------------------------------------*/
+
+/* perk_description */
+QTextEdit#perks_description{
+	border: none;
+}
+/*-----------------------------------------------------*/
+
+/* item label*/
+QLabel#w_damage_label, QLabel#w_weight_label, QLabel#w_cost_label, QLabel#w_durability_label,  QLabel#w_ammo_label, QLabel#w_effect_label, QLabel#a_damage_label, QLabel#a_weight_label, QLabel#a_cost_label, QLabel#a_durability_label,  QLabel#a_type_label, QLabel#a_effect_labe l, QLabel#aid_weight_label, QLabel#aid_cost_label, QTextBrowser#aid_effect_label, QLabel#ammo_weight_label, QLabel#ammo_cost_label{
+	border-top: 1px solid #77fb51;
+	border-right: 1px solid #77fb51;
+	margin: 5px 0px 0px 0px;
+
+}
+
+QLabel#w_effect_label {
+	padding-top: -7px; 
+}
+/*-----------------------------------------------------*/</string>
+  </property>
+  <widget class="QTabWidget" name="main_tab">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>700</width>
+     <height>480</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto Mono</family>
+     <pointsize>18</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="tabPosition">
+    <enum>QTabWidget::North</enum>
+   </property>
+   <property name="tabShape">
+    <enum>QTabWidget::Rounded</enum>
+   </property>
+   <property name="currentIndex">
+    <number>2</number>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+   <property name="tabsClosable">
+    <bool>false</bool>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="tabBarAutoHide">
+    <bool>false</bool>
+   </property>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string/>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="stat">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <attribute name="title">
+     <string>STAT</string>
+    </attribute>
+    <widget class="QTabWidget" name="stat_tab">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>904</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono Medium</family>
+       <pointsize>17</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTabBar::tab {
+    color: #77fb51;
+	background: black;
+
+  	min-width: 8ex;
+    margin-right: -1px;
+    padding: 2px 10px 1px 10px;
+}
+
+QTabBar::tab:selected {
+	border-image: none;
+	border: none;
+}
+
+QTabBar::tab:!selected {
+	color: rgba(119,251,81, 90);
+	border: none;
+}
+</string>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="status">
+      <attribute name="title">
+       <string>STATUS</string>
+      </attribute>
+      <widget class="QLabel" name="main_img">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>30</y>
+         <width>240</width>
+         <height>251</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="stimpak">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>320</y>
+         <width>105</width>
+         <height>29</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>13</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>STIMPAK(4)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="radaway">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>320</y>
+         <width>105</width>
+         <height>29</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>13</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>RADAWAY(0)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="name">
+       <property name="geometry">
+        <rect>
+         <x>315</x>
+         <y>290</y>
+         <width>71</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>boopsy</string>
+       </property>
+      </widget>
+      <widget class="QProgressBar" name="hp_head">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>10</y>
+         <width>50</width>
+         <height>12</height>
+        </rect>
+       </property>
+       <property name="value">
+        <number>57</number>
+       </property>
+      </widget>
+      <widget class="QProgressBar" name="hp_right_arm">
+       <property name="geometry">
+        <rect>
+         <x>440</x>
+         <y>75</y>
+         <width>50</width>
+         <height>12</height>
+        </rect>
+       </property>
+       <property name="value">
+        <number>100</number>
+       </property>
+      </widget>
+      <widget class="QProgressBar" name="hp_left_arm">
+       <property name="geometry">
+        <rect>
+         <x>215</x>
+         <y>75</y>
+         <width>50</width>
+         <height>12</height>
+        </rect>
+       </property>
+       <property name="value">
+        <number>100</number>
+       </property>
+      </widget>
+      <widget class="QProgressBar" name="hp_body">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>125</y>
+         <width>50</width>
+         <height>12</height>
+        </rect>
+       </property>
+       <property name="value">
+        <number>100</number>
+       </property>
+      </widget>
+      <widget class="QProgressBar" name="hp_right_leg">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>220</y>
+         <width>50</width>
+         <height>12</height>
+        </rect>
+       </property>
+       <property name="value">
+        <number>100</number>
+       </property>
+      </widget>
+      <widget class="QProgressBar" name="hp_left_leg">
+       <property name="geometry">
+        <rect>
+         <x>225</x>
+         <y>220</y>
+         <width>50</width>
+         <height>12</height>
+        </rect>
+       </property>
+       <property name="value">
+        <number>100</number>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="special">
+      <attribute name="title">
+       <string>SPECIAL</string>
+      </attribute>
+      <widget class="QListWidget" name="special_list">
+       <property name="geometry">
+        <rect>
+         <x>108</x>
+         <y>20</y>
+         <width>345</width>
+         <height>307</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>16</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustIgnored</enum>
+       </property>
+       <property name="autoScroll">
+        <bool>false</bool>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="showDropIndicator" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="flow">
+        <enum>QListView::TopToBottom</enum>
+       </property>
+       <property name="selectionRectVisible">
+        <bool>false</bool>
+       </property>
+       <property name="currentRow">
+        <number>-1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>Strength               2</string>
+        </property>
+        <property name="textAlignment">
+         <set>AlignLeading|AlignVCenter</set>
+        </property>
+        <property name="flags">
+         <set>ItemIsSelectable|ItemIsEnabled</set>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Perception             6</string>
+        </property>
+        <property name="flags">
+         <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Endurance              4</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Charisma              10</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Intelligence           7</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Agility                5</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Luck                   8</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="special_image">
+       <property name="geometry">
+        <rect>
+         <x>468</x>
+         <y>20</y>
+         <width>331</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="special_description">
+       <property name="geometry">
+        <rect>
+         <x>468</x>
+         <y>191</y>
+         <width>331</width>
+         <height>136</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono Medium</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Сила расскажет тебе, сможет ли ковбой легко тащить свое седло, ну или большие пушки; а заодно – много ли пользы от него при драке в салуне.</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::AutoText</enum>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="perks">
+      <attribute name="title">
+       <string>PERKS</string>
+      </attribute>
+      <widget class="QListWidget" name="perks_list">
+       <property name="geometry">
+        <rect>
+         <x>214</x>
+         <y>20</y>
+         <width>345</width>
+         <height>307</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>16</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustIgnored</enum>
+       </property>
+       <property name="autoScroll">
+        <bool>false</bool>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="showDropIndicator" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="flow">
+        <enum>QListView::TopToBottom</enum>
+       </property>
+       <property name="selectionRectVisible">
+        <bool>false</bool>
+       </property>
+       <property name="currentRow">
+        <number>-1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>Ковбой</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Чёрная вдова</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Шерше ля фам</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Дуэлист</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Профессионал</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Халявщик</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Таинственный незнакомец</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Снайпер</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Дружеские подколки</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ночное существо</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>День под кайфом</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Беззаветная преданность</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Кладоискатель</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Друг животных</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Домушник</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Виски и роза</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Наводчик</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="perks_image">
+       <property name="geometry">
+        <rect>
+         <x>574</x>
+         <y>20</y>
+         <width>331</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="perks_description">
+       <property name="geometry">
+        <rect>
+         <x>574</x>
+         <y>191</y>
+         <width>331</width>
+         <height>136</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono Medium</family>
+         <pointsize>12</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto Mono Medium'; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Вы наносите на 25% больше урона, если используете револьверы, стрелковое оружие с рычажным механизмом затвора, динамит, ножи или топорики.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="placeholderText">
+        <string>Всему прочему вы предпочитаете близкое личное общение. Критический урон при скрытной атаке с использованием пистолетов, револьверов и пистолетов-пулемётов (как обычных, так и энергетических) увеличивается на 20 %.</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="hp">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>386</y>
+       <width>172</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="text">
+      <string>HP 145/145</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="level">
+     <property name="geometry">
+      <rect>
+       <x>177</x>
+       <y>386</y>
+       <width>340</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>LEVEL 24</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="ap">
+     <property name="geometry">
+      <rect>
+       <x>522</x>
+       <y>386</y>
+       <width>170</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>AP 90/90</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="level_bar">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>396</y>
+       <width>233</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono</family>
+      </font>
+     </property>
+     <property name="value">
+      <number>2</number>
+     </property>
+     <property name="textVisible">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="inv">
+    <attribute name="title">
+     <string>INV</string>
+    </attribute>
+    <widget class="QTabWidget" name="inv_tab">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>700</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono Medium</family>
+       <pointsize>17</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTabBar::tab {
+    color: #77fb51;
+	background: black;
+
+  	min-width: 8ex;
+    margin-right: -1px;
+    padding: 2px 10px 1px 10px;
+}
+
+QTabBar::tab:selected {
+	border-image: none;
+	border: none;
+}
+
+QTabBar::tab:!selected {
+	color: rgba(119,251,81, 90);
+	border: none;
+}
+</string>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="aparrel2">
+      <attribute name="title">
+       <string>WEAPON</string>
+      </attribute>
+      <widget class="QListWidget" name="test_list">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>345</width>
+         <height>307</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>16</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustIgnored</enum>
+       </property>
+       <property name="autoScroll">
+        <bool>false</bool>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="showDropIndicator" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="flow">
+        <enum>QListView::TopToBottom</enum>
+       </property>
+       <property name="selectionRectVisible">
+        <bool>false</bool>
+       </property>
+       <property name="currentRow">
+        <number>-1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>«Магнум» кал. 44</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>«Секвойя» рейнджера</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Снайперская винтовка</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Боевой нож</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Выкидной нож</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="weapon_image">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>20</y>
+         <width>331</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="w_damage_label">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>181</y>
+         <width>107</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>УРОН 38</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="w_weight_label">
+       <property name="geometry">
+        <rect>
+         <x>472</x>
+         <y>181</y>
+         <width>107</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>ВЕС 3.5</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="w_cost_label">
+       <property name="geometry">
+        <rect>
+         <x>584</x>
+         <y>181</y>
+         <width>107</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>СТО 2500</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="w_durability_label">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>224</y>
+         <width>107</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>ССТ</string>
+       </property>
+      </widget>
+      <widget class="QProgressBar" name="w_durability_PB">
+       <property name="geometry">
+        <rect>
+         <x>402</x>
+         <y>242</y>
+         <width>59</width>
+         <height>12</height>
+        </rect>
+       </property>
+       <property name="value">
+        <number>96</number>
+       </property>
+       <property name="textVisible">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="w_ammo_label">
+       <property name="geometry">
+        <rect>
+         <x>472</x>
+         <y>224</y>
+         <width>219</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>.44 «Магнум»</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="w_effect_label">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>267</y>
+         <width>331</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="apparel">
+      <attribute name="title">
+       <string>APPAREL</string>
+      </attribute>
+      <widget class="QListWidget" name="apparel_list">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>345</width>
+         <height>307</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>16</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::TabFocus</enum>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustIgnored</enum>
+       </property>
+       <property name="autoScroll">
+        <bool>false</bool>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="showDropIndicator" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="flow">
+        <enum>QListView::TopToBottom</enum>
+       </property>
+       <property name="isWrapping" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+       <property name="selectionRectVisible">
+        <bool>false</bool>
+       </property>
+       <property name="currentRow">
+        <number>-1</number>
+       </property>
+       <property name="sortingEnabled">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>Боевая броня рейнджера   НКР</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Шлем рейнджера</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Костюм Короля</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="apparel_image">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>20</y>
+         <width>331</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="a_damage_label">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>181</y>
+         <width>107</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>ПУ 20</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="a_weight_label">
+       <property name="geometry">
+        <rect>
+         <x>472</x>
+         <y>181</y>
+         <width>107</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>ВЕС 35</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="a_cost_label">
+       <property name="geometry">
+        <rect>
+         <x>584</x>
+         <y>181</y>
+         <width>107</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>СТО 7500</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="a_durability_label">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>224</y>
+         <width>107</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>ССТ</string>
+       </property>
+      </widget>
+      <widget class="QProgressBar" name="a_durability_PB">
+       <property name="geometry">
+        <rect>
+         <x>402</x>
+         <y>242</y>
+         <width>59</width>
+         <height>12</height>
+        </rect>
+       </property>
+       <property name="value">
+        <number>96</number>
+       </property>
+       <property name="textVisible">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="a_type_label">
+       <property name="geometry">
+        <rect>
+         <x>472</x>
+         <y>224</y>
+         <width>219</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Легкая</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="a_effect_label">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>267</y>
+         <width>331</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>ЭФФ: Статус гражданина НКР</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="aid">
+      <attribute name="title">
+       <string>AID</string>
+      </attribute>
+      <widget class="QListWidget" name="aid_list">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>345</width>
+         <height>307</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>16</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::TabFocus</enum>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustIgnored</enum>
+       </property>
+       <property name="autoScroll">
+        <bool>false</bool>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="showDropIndicator" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="flow">
+        <enum>QListView::TopToBottom</enum>
+       </property>
+       <property name="isWrapping" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+       <property name="selectionRectVisible">
+        <bool>false</bool>
+       </property>
+       <property name="currentRow">
+        <number>-1</number>
+       </property>
+       <property name="sortingEnabled">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>Баффаут</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Винт</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ментаты</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Стимулятор(4)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Сансет саспарилла</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ледяная ядер-кола</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Свежая картофелина</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="aid_image">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>20</y>
+         <width>331</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="aid_cost_label">
+       <property name="geometry">
+        <rect>
+         <x>584</x>
+         <y>181</y>
+         <width>107</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>СТО 20</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="aid_weight_label">
+       <property name="geometry">
+        <rect>
+         <x>472</x>
+         <y>181</y>
+         <width>107</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>ВЕС 0</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="aid_effect_label">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>224</y>
+         <width>331</width>
+         <height>103</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto Mono'; font-size:14pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;ЭФФ: Очки здоровья: +60; Сила: +2; Выносливость: +3&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="ammo">
+      <attribute name="title">
+       <string>AMMO</string>
+      </attribute>
+      <widget class="QListWidget" name="ammo_list">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>345</width>
+         <height>307</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>16</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::TabFocus</enum>
+       </property>
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustIgnored</enum>
+       </property>
+       <property name="autoScroll">
+        <bool>false</bool>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="showDropIndicator" stdset="0">
+        <bool>false</bool>
+       </property>
+       <property name="flow">
+        <enum>QListView::TopToBottom</enum>
+       </property>
+       <property name="isWrapping" stdset="0">
+        <bool>true</bool>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+       <property name="selectionRectVisible">
+        <bool>false</bool>
+       </property>
+       <property name="currentRow">
+        <number>-1</number>
+       </property>
+       <property name="sortingEnabled">
+        <bool>false</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>Патрон калибра .44 «Магнум»(60)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Патрон калибра .45-70(60)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Патрон калибра .308(60)</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="ammo_image">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>20</y>
+         <width>331</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="ammo_weight_label">
+       <property name="geometry">
+        <rect>
+         <x>472</x>
+         <y>181</y>
+         <width>107</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>ВЕС 0.043</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="ammo_cost_label">
+       <property name="geometry">
+        <rect>
+         <x>584</x>
+         <y>181</y>
+         <width>107</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto Mono</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>СТО 2</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="weight">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>386</y>
+       <width>115</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;69/250&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="weight_img">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>386</y>
+       <width>31</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/futter/image/weight.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="cup_img">
+     <property name="geometry">
+      <rect>
+       <x>145</x>
+       <y>386</y>
+       <width>31</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/futter/image/cap.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="cup">
+     <property name="geometry">
+      <rect>
+       <x>175</x>
+       <y>386</y>
+       <width>120</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="text">
+      <string>5000</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="inv_space">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>386</y>
+       <width>401</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="data">
+    <attribute name="title">
+     <string>DATA</string>
+    </attribute>
+    <widget class="QLabel" name="data_footer">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>386</y>
+       <width>700</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="data_list">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>345</width>
+       <height>357</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono</family>
+       <pointsize>16</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::TabFocus</enum>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::DefaultContextMenu</enum>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustIgnored</enum>
+     </property>
+     <property name="autoScroll">
+      <bool>false</bool>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="showDropIndicator" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="flow">
+      <enum>QListView::TopToBottom</enum>
+     </property>
+     <property name="isWrapping" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="selectionRectVisible">
+      <bool>false</bool>
+     </property>
+     <property name="currentRow">
+      <number>-1</number>
+     </property>
+     <property name="sortingEnabled">
+      <bool>false</bool>
+     </property>
+     <item>
+      <property name="text">
+       <string>Happy Birthday</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>День игр </string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Дети из товарняка</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Убежище 84</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>ИДИООООТ!!!</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Шут гороховый</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>В благородство играть не будем</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Детективное агентство Л.С. Кеннеди</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QTextBrowser" name="data_description">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>20</y>
+       <width>331</width>
+       <height>357</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono</family>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Roboto Mono'; font-size:16pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;□ Отметить день рождения с родными, близкими и друзьями&lt;br /&gt;■ (Дополнительно) провести праздничный стрим&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="map">
+    <attribute name="title">
+     <string>MAP</string>
+    </attribute>
+    <widget class="QLabel" name="map_image">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>700</width>
+       <height>389</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/map/image/map.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="radio">
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <attribute name="title">
+     <string>RADIO</string>
+    </attribute>
+    <widget class="QListWidget" name="radio_list">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>345</width>
+       <height>357</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono</family>
+       <pointsize>16</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::TabFocus</enum>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::DefaultContextMenu</enum>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustIgnored</enum>
+     </property>
+     <property name="autoScroll">
+      <bool>false</bool>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="showDropIndicator" stdset="0">
+      <bool>false</bool>
+     </property>
+     <property name="flow">
+      <enum>QListView::TopToBottom</enum>
+     </property>
+     <property name="isWrapping" stdset="0">
+      <bool>true</bool>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="selectionRectVisible">
+      <bool>false</bool>
+     </property>
+     <property name="currentRow">
+      <number>-1</number>
+     </property>
+     <property name="sortingEnabled">
+      <bool>false</bool>
+     </property>
+     <item>
+      <property name="text">
+       <string>Fallout: New Vegas</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Музыка Мохаве</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Нью-Вегас</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="map_footer">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>386</y>
+       <width>700</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Roboto Mono</family>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QWidget" name="chartContainer" native="true">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>20</y>
+       <width>331</width>
+       <height>171</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string/>
+    </attribute>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="image.qrc"/>
+ </resources>
+ <connections/>
+</ui>

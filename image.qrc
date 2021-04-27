@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="tab_border">
+    <file>image/tab_border.png</file>
+  </qresource>
+  <qresource prefix="futter">
+    <file>image/cap.png</file>
+    <file>image/weight.png</file>
+  </qresource>
+  <qresource prefix="map">
+    <file>image/map.png</file>
+  </qresource>
+</RCC>
